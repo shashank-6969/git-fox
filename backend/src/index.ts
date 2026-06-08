@@ -32,7 +32,11 @@ app.get('/health', (_req, res) => {
 // ── Global error handler (must be last) ─────────────────────────────────────
 app.use(errorHandler);
 
-app.listen(PORT, () => {
-  console.log(`🦊 Git Fox backend running on http://localhost:${PORT}`);
-  console.log(`   GitHub token: ${process.env.GITHUB_TOKEN ? '✅ set' : '⚠️  not set (60 req/hr limit)'}`);
-});
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(PORT, () => {
+    console.log(`🦊 Git Fox backend running on http://localhost:${PORT}`);
+    console.log(`   GitHub token: ${process.env.GITHUB_TOKEN ? '✅ set' : '⚠️  not set (60 req/hr limit)'}`);
+  });
+}
+
+export default app;
