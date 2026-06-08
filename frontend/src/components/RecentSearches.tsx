@@ -1,4 +1,5 @@
-import { motion, AnimatePresence, Variants } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+import type { Variants } from 'framer-motion';
 import { Clock, X, Trash2 } from 'lucide-react';
 
 interface RecentSearchesProps {
